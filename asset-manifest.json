@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Dekert/static/css/main.e6c13ad2.css",
+    "main.js": "/Dekert/static/js/main.9135474d.js",
+    "static/js/453.619b50f0.chunk.js": "/Dekert/static/js/453.619b50f0.chunk.js",
+    "index.html": "/Dekert/index.html",
+    "main.e6c13ad2.css.map": "/Dekert/static/css/main.e6c13ad2.css.map",
+    "main.9135474d.js.map": "/Dekert/static/js/main.9135474d.js.map",
+    "453.619b50f0.chunk.js.map": "/Dekert/static/js/453.619b50f0.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.9135474d.js"
+  ]
+}
