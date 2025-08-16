@@ -1,0 +1,77 @@
+.fabric-container {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+.client-input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.drawing-canvas {
+  border: 1px solid black;
+  display: block;
+}
+
+.note-textarea {
+  margin-top: 10px;
+  min-height: 100px;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  display: block;
+}
+
+.photo-input {
+  margin-top: 10px;
+}
+
+.buttons {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.buttons button {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.drawings-preview {
+  margin-top: 20px;
+}
+
+.drawings-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.drawing-wrapper {
+  position: relative;
+}
+
+.drawing-wrapper img {
+  width: 150px;
+  border: 1px solid #ccc;
+}
+
+.drawing-wrapper button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
