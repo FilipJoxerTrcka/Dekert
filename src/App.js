@@ -5,9 +5,8 @@ import { v4 as uuidv4 } from "uuid";
 import { exportPDF } from "./fabricHelpers";
 
 function App() {
-  // --- Stav ---
-  const [clientName, setClientName] = useState(""); // meno klienta
-  const [notes, setNotes] = useState("");           // poznámky
+  const [clientName, setClientName] = useState(""); 
+  const [notes, setNotes] = useState("");          
   const [brands, setBrands] = useState([{ id: uuidv4(), value: "" }]);
   const [maxPrice, setMaxPrice] = useState("");
   const [images, setImages] = useState([]);
@@ -73,24 +72,11 @@ function App() {
     };
   }, [images]);
 
-  // --- Zoznam všetkých možných značiek ---
-  const allBrands = [
-    "Aux",
-    "Bosh",
-    "Dekert",
-    "Hisense",
-    "MideaGroup",
-    "MvPower",
-    "Samsung",
-    "Toshiba",
-    "Vivax",
-  ];
-
   return (
     <div style={{ padding: 20 }}>
       <h1>Obhliadka klímy</h1>
 
-      {/* --- Meno klienta --- */}
+      {/* Meno klienta */}
       <div style={{ marginBottom: 10 }}>
         <label>Meno klienta: </label>
         <input
@@ -101,7 +87,7 @@ function App() {
         />
       </div>
 
-      {/* --- Poznámky --- */}
+      {/* Poznámky */}
       <div style={{ marginBottom: 10 }}>
         <label>Poznámky: </label>
         <textarea
@@ -113,32 +99,27 @@ function App() {
         />
       </div>
 
-      {/* --- Značky --- */}
+      {/* Značky */}
       <h3>Značky klímy:</h3>
-      {brands.map((brand) => {
-        // Zoznam už vybraných značiek okrem tejto
-        const selectedValues = brands
-          .filter((b) => b.id !== brand.id)
-          .map((b) => b.value);
-
-        return (
-          <div key={brand.id} style={{ marginBottom: 10 }}>
-            <select
-              value={brand.value}
-              onChange={(e) => handleBrandChange(brand.id, e.target.value)}
-            >
-              <option value="">-- Vyber značku --</option>
-              {allBrands
-                .filter((option) => !selectedValues.includes(option))
-                .map((option) => (
-                  <option key={option} value={option}>
-                    {option}
-                  </option>
-                ))}
-            </select>
-          </div>
-        );
-      })}
+      {brands.map((brand) => (
+        <div key={brand.id} style={{ marginBottom: 10 }}>
+          <select
+            value={brand.value}
+            onChange={(e) => handleBrandChange(brand.id, e.target.value)}
+          >
+            <option value="">-- Vyber značku --</option>
+            <option value="Aux">Aux</option>
+            <option value="Bosh">Bosh</option>
+            <option value="Dekert">Dekert</option>
+            <option value="Hisense">Hisense</option>
+            <option value="MideaGroup">MideaGroup</option>
+            <option value="MvPower">MvPower</option>
+            <option value="Samsung">Samsung</option>
+            <option value="Toshiba">Toshiba</option>
+            <option value="Vivax">Vivax</option>
+          </select>
+        </div>
+      ))}
       <button onClick={handleAddBrand}>➕ Pridať ďalšiu značku</button>
 
       <br /><br />
@@ -152,48 +133,61 @@ function App() {
 
       <br /><br />
 
-      {/* --- Kreslenie pôdorysov --- */}
+      {/* Kreslenie pôdorysov */}
       <button onClick={() => setModalOpen(true)}>✏️ Kresli pôdorys</button>
 
-      {modalOpen && (
-        <div
-          style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            background: "rgba(0,0,0,0.5)",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            zIndex: 1000,
-          }}
-        >
-          <div
-            style={{
-              background: "#fff",
-              padding: 20,
-              maxWidth: "95%",
-              maxHeight: "90%",
-              width: "90%",
-              height: "80%",
-              display: "flex",
-              flexDirection: "column",
-            }}
-          >
-            <FabricCanvas ref={fabricRef} onSave={handleSaveDrawing} />
-            <div style={{ marginTop: 10 }}>
-              <button onClick={() => fabricRef.current.saveAndClear()} style={{ marginRight: 10 }}>💾 Uložiť</button>
-              <button onClick={() => fabricRef.current.clearCanvas()} style={{ marginRight: 10 }}>🗑 Vymazať</button>
-              <button onClick={() => setModalOpen(false)}>❌ Zavrieť</button>
-              <button onClick={() => fabricRef.current.undoLast()} style={{ marginLeft: 10 }}>🔙 Späť</button>
-            </div>
-          </div>
-        </div>
-      )}
+     {modalOpen && (
+  <div
+    style={{
+      position: "fixed",
+      top: 0,
+      left: 0,
+      width: "100%",
+      height: "100%",
+      background: "rgba(0,0,0,0.5)",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      zIndex: 1000,
+    }}
+  >
+    <div
+      style={{
+        background: "#fff",
+        padding: 10,
+        maxWidth: "95%",
+        maxHeight: "90%",
+        width: "90%",
+        display: "flex",
+        flexDirection: "column",
+        overflow: "hidden",
+      }}
+    >
+      {/* Canvas zaberie dostupný priestor */}
+      <div style={{ flex: 1, overflow: "auto" }}>
+        <FabricCanvas ref={fabricRef} onSave={handleSaveDrawing} />
+      </div>
 
-      {/* --- Náhľad pôdorysov --- */}
+      {/* Tlačidlá */}
+      <div
+        style={{
+          marginTop: 10,
+          display: "flex",
+          flexWrap: "wrap",
+          gap: 10,
+          justifyContent: "center",
+        }}
+      >
+        <button onClick={() => fabricRef.current.saveAndClear()}>💾 Uložiť</button>
+        <button onClick={() => fabricRef.current.clearCanvas()}>🗑 Vymazať</button>
+        <button onClick={() => setModalOpen(false)}>❌ Zavrieť</button>
+        <button onClick={() => fabricRef.current.undoLast()}>🔙 Späť</button>
+      </div>
+    </div>
+  </div>
+)}
+
+      {/* Náhľad pôdorysov */}
       {drawings.length > 0 && (
         <div>
           <h3>Uložené pôdorysy:</h3>
@@ -224,7 +218,7 @@ function App() {
         </div>
       )}
 
-      {/* --- Fotky --- */}
+      {/* Fotky */}
       <h3>Fotky:</h3>
       <div
         {...getRootProps()}
