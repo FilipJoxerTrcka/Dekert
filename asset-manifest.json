@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Dekert/static/css/main.00bbb3a0.css",
-    "main.js": "/Dekert/static/js/main.3f7d3dc2.js",
+    "main.js": "/Dekert/static/js/main.104dcc41.js",
     "static/js/239.c66323a8.chunk.js": "/Dekert/static/js/239.c66323a8.chunk.js",
     "static/js/977.345de53e.chunk.js": "/Dekert/static/js/977.345de53e.chunk.js",
     "static/js/455.3e993296.chunk.js": "/Dekert/static/js/455.3e993296.chunk.js",
     "static/js/488.76f2fe5e.chunk.js": "/Dekert/static/js/488.76f2fe5e.chunk.js",
     "index.html": "/Dekert/index.html",
     "main.00bbb3a0.css.map": "/Dekert/static/css/main.00bbb3a0.css.map",
-    "main.3f7d3dc2.js.map": "/Dekert/static/js/main.3f7d3dc2.js.map",
+    "main.104dcc41.js.map": "/Dekert/static/js/main.104dcc41.js.map",
     "239.c66323a8.chunk.js.map": "/Dekert/static/js/239.c66323a8.chunk.js.map",
     "977.345de53e.chunk.js.map": "/Dekert/static/js/977.345de53e.chunk.js.map",
     "455.3e993296.chunk.js.map": "/Dekert/static/js/455.3e993296.chunk.js.map",
@@ -16,6 +16,6 @@
   },
   "entrypoints": [
     "static/css/main.00bbb3a0.css",
-    "static/js/main.3f7d3dc2.js"
+    "static/js/main.104dcc41.js"
   ]
 }
